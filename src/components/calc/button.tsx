@@ -22,13 +22,12 @@ interface IProps {
     text: string | number,
 }
 
-const CalcButton: FC<IProps> = (props) => {
+const CalcButton: FC<IProps> = ({text, color, ...props}) => {
 
-    const className = "btn " + colors[props.color] + " " + props.className;
-    const renderedProps = {...props, text: undefined, color: undefined};
+    const className = "btn " + colors[color!] + " " + props.className;
 
     return (
-        <button {...renderedProps} className={className}>{props.text}</button>
+        <button {...props} className={className}>{text}</button>
     );
 }
 
